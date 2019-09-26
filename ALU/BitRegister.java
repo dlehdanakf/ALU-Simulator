@@ -9,6 +9,9 @@ public class BitRegister {
 	static public BitRegister toBinaryNumber(int original_number) {
 		BitRegister instance = new BitRegister(32);
 		int number = Math.abs(original_number);
+		if(number == 0) {
+			return instance;
+		}
 		
 		int i = 0;
 		while(number != 1) {
@@ -70,7 +73,7 @@ public class BitRegister {
 		}
 	}
 	public BitRegister clone() {
-		BitRegister instance = new BitRegister(32);
+		BitRegister instance = new BitRegister(this._length);
 		for(int i = 0; i < this._length; i++) {
 			boolean tmp = this.get(i);
 			instance.set(i, tmp);
@@ -95,13 +98,13 @@ public class BitRegister {
 	}
 	
 	public boolean shiftRight() {
-		boolean first = this.get(0), carry = false;
+		boolean carry = this.get(0);
 		for(int i = 0; i < this._length - 1; i++) {
-			carry = this.get(i + 1);
-			this.set(i, carry);
+			boolean tmp = this.get(i + 1);
+			this.set(i, tmp);
 		}
 		
-		this.set(this._length - 1, first);
+		this.set(this._length - 1, carry);
 		return carry;
 	}
 	public boolean shiftRight(boolean prev_carry) {
@@ -112,13 +115,13 @@ public class BitRegister {
 	}
 	
 	public boolean shiftLeft() {
-		boolean first = this.get(this._length - 1), carry = false;
+		boolean carry = this.get(this._length - 1);
 		for(int i = this._length - 1; i > 0; i--) {
-			carry = this.get(i - 1);
-			this.set(i, carry);
+			boolean tmp = this.get(i - 1);
+			this.set(i, tmp);
 		}
 		
-		this.set(0, first);
+		this.set(0, carry);
 		return carry;
 	}
 	public boolean shiftLeft(boolean prev_carry) {
@@ -154,10 +157,10 @@ public class BitRegister {
 	
 
 	/**
-	 * 2의 보수를 계산하는 과정에서만 실행하는 메소
+	 * 내부계산으로만 사용
 	 * @param instance
 	 */
-	protected void calcAdd(BitRegister instance) {
+	public void calcAdd(BitRegister instance) {
 		boolean carry = false;
 		for(int i = 0; i < this._length; i++) {
 			boolean a = this.get(i);
@@ -173,4 +176,10 @@ public class BitRegister {
 			this.set(i, result);
 		}
 	}
+	public void calcSub(BitRegister instance) {
+		BitRegister clone = instance.clone();
+		clone.makeComplement();
+		
+		this.calcAdd(clone);
+	} 
 }

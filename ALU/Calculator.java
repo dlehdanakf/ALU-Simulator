@@ -19,6 +19,7 @@ abstract public class Calculator {
 		this.a = a;
 		this.b = b;
 		
+		this.A = BitRegister.toBinaryNumber(0);
 		this.Q = BitRegister.toBinaryNumber(this.a);
 		this.M = BitRegister.toBinaryNumber(this.b);
 		this.C = this.S = this.Z = this.V = false;
@@ -53,6 +54,6 @@ abstract public class Calculator {
 	}
 	
 	protected void printFooter() {
-		System.out.println("⑸ 계산결과");
+		System.out.println("\n⑸ 계산결과");
 	}
 }

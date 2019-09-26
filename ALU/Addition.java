@@ -39,7 +39,6 @@ public class Addition extends Calculator {
 		this.S = this.Q.getSignBit();
 		this.C = Cn;
 		
-		System.out.print("\n");
 		this.printFooter();
 	}
 	
