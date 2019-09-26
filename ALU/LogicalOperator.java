@@ -1,7 +1,5 @@
 package ALU;
 
-import ALU.BitRegister;
-
 public class LogicalOperator {
 	static public boolean NOT(boolean a) {
 		return !a;

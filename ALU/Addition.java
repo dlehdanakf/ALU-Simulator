@@ -1,6 +1,4 @@
 package ALU;
-import ALU.Calculator;
-import ALU.LogicalOperator;
 
 public class Addition extends Calculator {
 	public Addition(int a, int b) { super(a, b); }

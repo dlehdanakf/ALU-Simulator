@@ -5,7 +5,7 @@ public class Subtraction extends Addition {
 	
 	public void printExpression() {
 		System.out.println("⑶ 계산식");
-		System.out.println(     "(" + this.a + ") - (" + this.b + ") \n");
+		System.out.println("(" + this.a + ") - (" + this.b + ") \n");
 	}
 	public void calculate() {		
 		System.out.println("* 빼기 연산을 수행하기 위한 레지스터 세팅");
