@@ -139,6 +139,19 @@ public class BitRegister {
 		
 		return str;
 	}
+	public String toStringDivision() {
+		String str = "";
+		for(int i = 0; i < this._length; i++) {
+			if(i == 0) {
+				str = "□" + str;
+				continue;
+			}
+			
+			str = (this.get(i) ? 1 : 0) + str;
+		}
+		
+		return str;
+	}
 	public int toDemicalNumber() {
 		if(this.getSignBit() == true) {
 			return this.getComplement().toDemicalNumber() * -1;
