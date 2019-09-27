@@ -54,6 +54,8 @@ public class Application {
 			case 4: calc = new Division(a, b); break;
 		}
 		
+		System.out.println("\n===============================================\n");
+		
 		calc.printHeader();
 		calc.calculate();
 	}
