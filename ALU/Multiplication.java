@@ -58,24 +58,6 @@ public class Multiplication extends Calculator {
 		
 		return 0;
 	}
-	protected BitRegister mergeRegister(BitRegister A, BitRegister Q) {
-		int length = A.getLength() + Q.getLength(), i;
-		BitRegister instance = new BitRegister(length);
-		
-		//	write from Q
-		for(i = 0; i < Q.getLength(); i++) {
-			boolean tmp = Q.get(i);
-			instance.set(i, tmp);
-		}
-		
-		// write from A
-		for(; i < length; i++) {
-			boolean tmp = A.get(i - Q.getLength());
-			instance.set(i, tmp);
-		}
-		
-		return instance;
-	}
 	
 	protected void printBorder() {
 		for(int i = 0; i < 90; i++) {
@@ -87,7 +69,7 @@ public class Multiplication extends Calculator {
 	protected void printFooter() {
 		super.printFooter();
 		
-		BitRegister result = this.mergeRegister(this.A, this.Q);
+		BitRegister result = BitRegister.mergeRegister(this.A, this.Q);
 		System.out.println("바이너리   : " + result.toString());
 		System.out.println("10진수    : " + result.toDemicalNumber());
 		

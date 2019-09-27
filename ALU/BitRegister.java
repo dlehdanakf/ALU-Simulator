@@ -28,6 +28,24 @@ public class BitRegister {
 		
 		return instance;
 	}
+	static public BitRegister mergeRegister(BitRegister A, BitRegister Q) {
+		int length = A.getLength() + Q.getLength(), i;
+		BitRegister instance = new BitRegister(length);
+		
+		//	write from Q
+		for(i = 0; i < Q.getLength(); i++) {
+			boolean tmp = Q.get(i);
+			instance.set(i, tmp);
+		}
+		
+		// write from A
+		for(; i < length; i++) {
+			boolean tmp = A.get(i - Q.getLength());
+			instance.set(i, tmp);
+		}
+		
+		return instance;
+	}
 	
 	public BitRegister(int length) {
 		this._length = length;
@@ -168,7 +186,6 @@ public class BitRegister {
 		return result;
 	}
 	
-
 	/**
 	 * 내부계산으로만 사용
 	 * @param instance
@@ -190,9 +207,7 @@ public class BitRegister {
 		}
 	}
 	public void calcSub(BitRegister instance) {
-		BitRegister clone = instance.clone();
-		clone.makeComplement();
-		
-		this.calcAdd(clone);
+		BitRegister comp = instance.getComplement();
+		this.calcAdd(comp);
 	} 
 }
