@@ -25,7 +25,7 @@ abstract public class Calculator {
 		this.C = this.S = this.Z = this.V = false;
 	}
 	public void printHeader() {
-		System.out.println("【 Start ALU Simulator 】");
+		System.out.println("【 Start Calculation 】");
 		System.out.println("⑴ 입력된 10진수");
 		System.out.print("A. " + this.a);
 		System.out.println(", B. " + this.b + "\n");
