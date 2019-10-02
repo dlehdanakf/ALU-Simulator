@@ -17,7 +17,7 @@ ProjectRoot/
 │   ├── Calculator.java			// 추상화된 계산기 클래스
 │   ├── Addition.java			// 가산기
 │   ├── Subtraction.java		// 감산기
-│   ├── Multiplication.java		//	Booth Algorithm
+│   ├── Multiplication.java		// Booth Algorithm
 │   ├── Division.java			// 나눗셈 알고리즘
 │   ├── BitRegister.java		// boolean 배열로 구성된 비트 레지스터
 │   └── LogicalOperator.java		// AND, OR, XOR 과 같은 논리연산 수행
