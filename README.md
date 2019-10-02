@@ -16,11 +16,11 @@ ProjectRoot/
 ├── ALU/
 │   ├── Calculator.java			// 추상화된 계산기 클래스
 │   ├── Addition.java			// 가산기
-│   ├── Subtraction.java		//	감산기
+│   ├── Subtraction.java		// 감산기
 │   ├── Multiplication.java		//	Booth Algorithm
 │   ├── Division.java			// 나눗셈 알고리즘
 │   ├── BitRegister.java		// boolean 배열로 구성된 비트 레지스터
-│   └── LogicalOperator.java	// AND, OR, XOR 과 같은 논리연산 수행
+│   └── LogicalOperator.java		// AND, OR, XOR 과 같은 논리연산 수행
 └── Application.java			// ALU Simulator application 실행
 ```
 
@@ -30,18 +30,18 @@ ProjectRoot/
 ### Calculator.java
 ```java
 abstract public class Calculator {
-	public int a;					// 사용자가 입력한 10진수 a
-	public int b;					// 사용자가 입력한 10진수 b
+	public int a;				// 사용자가 입력한 10진수 a
+	public int b;				// 사용자가 입력한 10진수 b
 	
 	public BitRegister A;			// 레지스터 A
 	public BitRegister Q;			// 레지스터 Q
 	public BitRegister M;			// 레지스터 M
 	
-	public boolean C;				//	Carry Flag
-	public boolean S;				//	Sign Flag
-	public boolean Z;				//	Zero Flag
-	public boolean V;				//	Overflow Flag
-	public boolean[] S_;			//	Sign Flag 계산을 위한 임시 비트 배열
+	public boolean C;			// Carry Flag
+	public boolean S;			// Sign Flag
+	public boolean Z;			// Zero Flag
+	public boolean V;			// Overflow Flag
+	public boolean[] S_;		// Sign Flag 계산을 위한 임시 비트 배열
 
 	public Calculator(int a, int b) { ... }
 	
